@@ -1,0 +1,17 @@
+{
+  "name": "pattern",
+  "description": "A simple pattern matching library",
+  "version": "0.0.1",
+  "author": "AJ Liptak",
+  "homepage": "https://github.com/aj-liptak/pattern",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/kkinnebrew/clementine/blob/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aj-liptak/pattern.git"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

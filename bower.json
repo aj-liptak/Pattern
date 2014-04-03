@@ -1,0 +1,15 @@
+{
+  "name": "pattern",
+  "version": "0.0.1",
+  "description": "A simple pattern matching library",
+  "keywords": [
+    "pattern",
+    "regex",
+    "javascript"
+  ],
+  "main": "pattern.js",
+  "license": "MIT",
+  "ignore": [],
+  "dependencies": {},
+  "devDependencies": {}
+}
