@@ -1,6 +1,5 @@
 describe('Email Tests', function() {
 
-
   describe('Test that return true', function () {
     it('works for simple email', function() {
       expect(Pattern.isValidEmail("email@test.com")).toEqual(true);
@@ -76,6 +75,52 @@ describe('Email Tests', function() {
     it('does not work with unicode characters', function () {
       expect(Pattern.isValidEmail('üñîçøðé@üñîçøðé.com')).toEqual(false);
     });
+  });
+
+  describe('True phone tests', function () {
+    it('works with a regular 10 digit phone number', function () {
+      expect(Pattern.isValidPhoneNumber('3122832345')).toEqual(true);
+    });
+
+    it('works with a regular 7 digit phone number', function () {
+      expect(Pattern.isValidPhoneNumber('8023518')).toEqual(true);
+    });
+
+    it('works with parenthesis around the first 3 digits', function () {
+      expect(Pattern.isValidPhoneNumber('(312)4567890')).toEqual(true);
+    });
+
+    it('works with dashes', function () {
+      expect(Pattern.isValidPhoneNumber('312-456-1234')).toEqual(true);
+    });
+
+    it('works with an int', function () {
+      expect(Pattern.isValidPhoneNumber(3124567890)).toEqual(true);
+    });
+
+    it('works with a US country code', function () {
+      expect(Pattern.isValidPhoneNumber(13128045982)).toEqual(true);
+    });
+
+    it('works with a + sign and country code', function () {
+      expect(Pattern.isValidPhoneNumber(+13128742345)).toEqual(true);
+    });
+
+    it('works with a space after the country code', function () {
+      expect(Pattern.isValidPhoneNumber('+1 3128022743')).toEqual(true);
+    });
+
+    it('works with spaces', function () {
+      expect(Pattern.isValidPhoneNumber('321 234 5345')).toEqual(true);
+    });
+  });
+
+  describe('False phone tests', function () {
+    it("won't work with random spaces", function () {
+      expect(Pattern.isValidPhoneNumber('31 3 0843 234')).toEqual(false);
+    });
+
+
   });
 
 
