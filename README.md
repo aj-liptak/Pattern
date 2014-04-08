@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/aj-liptak/Pattern.svg?branch=master)](https://travis-ci.org/aj-liptak/Pattern)
 # Pattern
 
 Pattern is a simple pattern matching library that provides access to commonly used regular expressions.
