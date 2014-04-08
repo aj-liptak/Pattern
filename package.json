@@ -21,6 +21,6 @@
     "karma-requirejs": "~0.2.1"
   },
   "scripts": {
-    "test": "tests/*"
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   }
 }
