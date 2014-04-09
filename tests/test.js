@@ -1,4 +1,4 @@
-describe('Email Tests', function() {
+describe('True Email Tests', function() {
 
   describe('Test that return true', function () {
     it('works for simple email', function() {
@@ -39,7 +39,7 @@ describe('Email Tests', function() {
 
   });
 
-  describe('Tests that return false', function () {
+  describe('False Email Tests', function () {
     it("doesn't work when there is no @ sign", function() {
       expect(Pattern.isValidEmail("test.com")).toEqual(false);
     });
@@ -113,6 +113,11 @@ describe('Email Tests', function() {
     it('works with spaces', function () {
       expect(Pattern.isValidPhoneNumber('321 234 5345')).toEqual(true);
     });
+
+    it('works with dots', function () {
+      expect(Pattern.isValidPhoneNumber('412.842.2123')).toEqual(true);
+    });
+
   });
 
   describe('False phone tests', function () {
@@ -120,7 +125,37 @@ describe('Email Tests', function() {
       expect(Pattern.isValidPhoneNumber('31 3 0843 234')).toEqual(false);
     });
 
+    it("won't work with random dashes", function () {
+      expect(Pattern.isValidPhoneNumber('31-634-313234')).toEqual(false);
+    });
 
+    it("won't work with random dots", function () {
+      expect(Pattern.isValidPhoneNumber('32.345.12456')).toEqual(false);
+    });
+
+    it("won't work with less than seven digits", function () {
+      expect(Pattern.isValidPhoneNumber(123456)).toEqual(false);
+    });
+
+    it("won't work with more than seven and less than 10 digits", function () {
+      expect(Pattern.isValidPhoneNumber('312567123')).toEqual(false);
+    });
+
+    it("won't work with more than ten digits", function () {
+      expect(Pattern.isValidPhoneNumber('31280287941')).toEqual(false);
+    });
+
+    it("won't work with letters", function () {
+      expect(Pattern.isValidPhoneNumber('312A4893123')).toEqual(false);
+    });
+
+    it("won't work with special characters", function() {
+      expect(Pattern.isValidPhoneNumber('312*532*1234')).toEqual(false);
+    });
+
+    it("won't work with unicode characters", function () {
+      expect(Pattern.isValidPhoneNumber('312î802312')).toEqual(false);
+    });
   });
 
 
