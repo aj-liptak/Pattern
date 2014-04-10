@@ -1,6 +1,6 @@
-describe('True Email Tests', function() {
+describe('Pattern Tests', function() {
 
-  describe('Test that return true', function () {
+  describe('True Email Tests', function () {
     it('works for simple email', function() {
       expect(Pattern.isValidEmail("email@test.com")).toEqual(true);
     });
@@ -156,6 +156,37 @@ describe('True Email Tests', function() {
     it("won't work with unicode characters", function () {
       expect(Pattern.isValidPhoneNumber('312î802312')).toEqual(false);
     });
+  });
+
+  describe('True URL tests', function () {
+    it("works for simple url", function () {
+      expect(Pattern.isValidURL('google.com')).toEqual(true);
+    });
+
+    it("works with www.", function () {
+      expect(Pattern.isValidURL('www.google.com')).toEqual(true);
+    });
+
+    it("works with http://", function () {
+      expect(Pattern.isValidURL('http://google.com')).toEqual(true);
+    });
+
+    it("works with https://", function () {
+      expect(Pattern.isValidURL('https://google.com')).toEqual(true);
+    });
+
+    it("works with .co.uk", function () {
+      expect(Pattern.isValidURL('https://google.co.uk')).toEqual(true);
+    });
+
+    it("works with long TLDs", function () {
+      expect(Pattern.isValidURL('https://museum.museum')).toEqual(true);
+    });
+
+    it("works with file paths", function () {
+      expect(Pattern.isValidURL('http://google.com/test')).toEqual(true);
+    });
+
   });
 
 
