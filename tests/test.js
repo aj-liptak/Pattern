@@ -187,6 +187,10 @@ describe('Pattern Tests', function() {
       expect(Pattern.isValidURL('http://google.com/test')).toEqual(true);
     });
 
+    it("works with underscores", function () {
+      expect(Pattern.isValidURL('http://google.com/test_underscores')).toEqual(true);
+    });
+
   });
 
 

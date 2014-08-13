@@ -16,6 +16,6 @@ var Pattern = {
     return urlPattern.test(url);
   }
 
-}
+};
 
-//})(Pattern);
+
